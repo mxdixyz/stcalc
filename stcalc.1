@@ -1,0 +1,22 @@
+.TH stcalc 1 2022-05-12
+.SH NAME
+stcalc \- Simple Terminal Calculator
+.SH SYNOPSIS
+.B stcalc
+.RB [ \-h ]
+.SH DESCRIPTION
+.B stcalc
+a simple command-line calculator written in C
+.SH OPTIONS
+.TP
+.B \-h
+prints format information
+.SH USAGE
+Improper Usage: 
+.B 1+2
+
+Proper Usage: 
+.B 1 + 2
+.SH ISSUES
+Pressing "Ctrl + D" (EOF) will result in never-ending loop. If this happens, kill the process using another program such as 
+.B killall
