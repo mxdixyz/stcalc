@@ -1,11 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int
 main(int argc,char *argv[]) {
 	if(argc>1) {
-		if(*argv[1]==*"-h") {
+		if(!strcmp(argv[1],"-h")) {
 			printf("Improper Usage:\n> ""\033[31m""1+2""\033[37m""\nProper Usage:\n> ""\033[32m""1 + 2\n""\033[37m");
 			return 0;
 		} else {
@@ -29,10 +30,10 @@ main(int argc,char *argv[]) {
 		err=0;
 		printf("> ");
 		scanf("%s %c %s",inp1,&op,inp2);
-		if(*inp1==*"ans") {
+		if(!strcmp(inp1,"ans")) {
 			num1=ans;
 			num2=atoi(inp2);
-		} else if(*inp2==*"ans") {
+		} else if(!strcmp(inp2,"ans")) {
 			num1=atoi(inp1);
 			num2=ans;
 		} else {
