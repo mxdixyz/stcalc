@@ -17,20 +17,23 @@ main(int argc,char *argv[]) {
 	double num1,num2,ans;
 	char inp1[5],inp2[5],op;
 	int ansSet,err;
+	system("clear");
+	printf("Operators: [+, -, *, /]\nType \"ans\" for previous answer\n(Ctrl + C) - exit\n\n\n\n\n");
 	for(;;) {
-		system("clear");
-		printf("Operators: [+, -, *, /]\nType \"ans\" for previous answer\n(Ctrl + C) - exit\n\n\n\n\n");
 		if(ansSet) {
-			if(!err) {
-				printf("Answer: %.2lf\n",ans);
+			if(err) {
+				printf("\033[31m""Invalid operator\n""\033[37m");
 			} else {
-				printf("Answer: ""\033[31m""Error\n""\033[37m");
+				printf("Answer: %.2lf\n",ans);
 			}
 		}
 		err=0;
 		printf("> ");
 		scanf("%s %c %s",inp1,&op,inp2);
-		if(!strcmp(inp1,"ans")) {
+		if(!strcmp(inp1,"ans")&&!strcmp(inp2,"ans")) {
+			num1=ans;
+			num2=ans;
+		} else if(!strcmp(inp1,"ans")) {
 			num1=ans;
 			num2=atoi(inp2);
 		} else if(!strcmp(inp2,"ans")) {
