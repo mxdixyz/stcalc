@@ -16,7 +16,7 @@ main(int argc,char *argv[]) {
 	}
 	double num1,num2,ans;
 	char inp1[5],inp2[5],op;
-	int ansSet,err;
+	int ansSet,err,eof;
 	system("clear");
 	printf("Operators: [+, -, *, /]\nType \"ans\" for previous answer\n(Ctrl + C) - exit\n\n\n\n\n");
 	for(;;) {
@@ -29,7 +29,10 @@ main(int argc,char *argv[]) {
 		}
 		err=0;
 		printf("> ");
-		scanf("%s %c %s",inp1,&op,inp2);
+		eof=scanf("%s %c %s",inp1,&op,inp2);
+		if(eof==EOF) {
+			return 0;
+		}
 		if(!strcmp(inp1,"ans")&&!strcmp(inp2,"ans")) {
 			num1=ans;
 			num2=ans;
