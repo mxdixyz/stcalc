@@ -36,7 +36,7 @@ main(int argc,char *argv[]) {
 		}
 		err=0;	
 		printf("> ");
-		eof=scanf("%s %c %s",inp1,&op,inp2);
+		eof=scanf("%16s %1c %16s",inp1,&op,inp2);
 		prevAns(inp1,inp2);
 		switch(op) {
 			case '+':
