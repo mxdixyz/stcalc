@@ -10,7 +10,7 @@ static double num1,num2,ans;
 
 int
 main(int argc,char *argv[]) {
-	// Check for arguments
+	signal(SIGINT,SIG_IGN); // Disable SIGINT (Ctrl-C)
 	if(argc>1) {
 		if(!strcmp(argv[1],"-h")) {
 			printf("Improper Usage:\n> ""\033[31m""1+2""\033[37m""\nProper Usage:\n> ""\033[32m""1 + 2\n""\033[37m");
@@ -20,12 +20,9 @@ main(int argc,char *argv[]) {
 			return EXIT_FAILURE;
 		}
 	}
-	// Disable Ctrl+C
-	signal(SIGINT,SIG_IGN);
 	system("clear");
 	int ansSet,err,eof;
 	char inp1[16],inp2[16],op;
-	printf("Operators: [+, -, *, /, %%]\nInput \"ans\" for previous answer\n(Ctrl+D) to exit\n\n\n\n\n");
 	while(eof!=EOF) {
 		if(ansSet) {
 			if(err) {
@@ -36,7 +33,7 @@ main(int argc,char *argv[]) {
 		}
 		err=0;	
 		printf("> ");
-		eof=scanf("%16s %1c %16s",inp1,&op,inp2);
+		eof=scanf("%15s %1c %15s",inp1,&op,inp2);
 		prevAns(inp1,inp2);
 		switch(op) {
 			case '+':
