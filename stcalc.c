@@ -20,16 +20,12 @@ main(int argc,char *argv[]) {
 			return EXIT_FAILURE;
 		}
 	}
-	system("clear");
+	printf("Operators: {+,-,*,/,%%}\nCtrl + D (EOF) to exit\n\n");
 	int ansSet,err,eof;
 	char inp1[16],inp2[16],op;
 	while(eof!=EOF) {
 		if(ansSet) {
-			if(err) {
-				printf("\033[31m""Invalid operator\n""\033[37m");
-			} else {
-				printf("Answer: %.2lf\n",ans);
-			}
+			if(err) printf("\033[31m""Invalid operator\n""\033[37m"); else printf("Answer: %.2lf\n",ans);
 		}
 		err=0;	
 		printf("> ");
@@ -72,17 +68,6 @@ main(int argc,char *argv[]) {
  */
 void
 prevAns(char *inp1,char *inp2) {
-	if(!strcmp(inp1,"ans")&&!strcmp(inp2,"ans")) {
-		num1=ans;
-		num2=ans;
-	} else if(!strcmp(inp1,"ans")) {
-		num1=ans;
-		num2=atoi(inp2);
-	} else if(!strcmp(inp2,"ans")) {
-		num1=atoi(inp1);
-		num2=ans;
-	} else {
-		num1=atoi(inp1);
-		num2=atoi(inp2);
-	}
+	if(!strcmp(inp1,"ans")) num1=ans; else num1=atoi(inp1);
+	if(!strcmp(inp2,"ans")) num2=ans; else num2=atoi(inp2);
 }
