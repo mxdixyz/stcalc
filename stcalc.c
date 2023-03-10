@@ -4,33 +4,33 @@
 #include <string.h>
 #include <signal.h>
 
-void prevAns(char *inp1,char *inp2);
+void prevAns(char *inp1, char *inp2);
 
-static double num1,num2,ans;
+static double num1, num2, ans;
 
 int
 main(int argc,char *argv[]) {
-	signal(SIGINT,SIG_IGN); // Disable SIGINT (Ctrl-C)
+	signal(SIGINT, SIG_IGN); // Disable SIGINT (Ctrl-C)
 	if(argc>1) {
 		if(!strcmp(argv[1],"-h")) {
 			printf("Improper Usage:\n> ""\033[31m""1+2""\033[37m""\nProper Usage:\n> ""\033[32m""1 + 2\n""\033[37m");
 			return EXIT_SUCCESS;
 		} else {
-			printf("Only passable argument if \"-h,\" for help\n");
+			fprintf(stderr, "Only passable argument if \"-h,\" for help\n");
 			return EXIT_FAILURE;
 		}
 	}
 	printf("Operators: {+,-,*,/,%%}\nCtrl + D (EOF) to exit\n\n");
-	int ansSet,err,eof;
-	char inp1[16],inp2[16],op;
+	int ansSet, err, eof;
+	char inp1[16], inp2[16], op;
 	while(eof!=EOF) {
 		if(ansSet) {
-			if(err) printf("\033[31m""Invalid operator\n""\033[37m"); else printf("Answer: %.2lf\n",ans);
+			if(err) printf("\033[31m""Invalid operator\n""\033[37m"); else printf("Answer: %.2lf\n", ans);
 		}
 		err=0;	
 		printf("> ");
-		eof=scanf("%15s %1c %15s",inp1,&op,inp2);
-		prevAns(inp1,inp2);
+		eof=scanf("%15s %1c %15s",inp1, &op, inp2);
+		prevAns(inp1, inp2);
 		switch(op) {
 			case '+':
 				ans=num1+num2;
@@ -68,6 +68,6 @@ main(int argc,char *argv[]) {
  */
 void
 prevAns(char *inp1,char *inp2) {
-	if(!strcmp(inp1,"ans")) num1=ans; else num1=atoi(inp1);
-	if(!strcmp(inp2,"ans")) num2=ans; else num2=atoi(inp2);
+	if(!strcmp(inp1, "ans")) num1=ans; else num1=atoi(inp1);
+	if(!strcmp(inp2, "ans")) num2=ans; else num2=atoi(inp2);
 }
