@@ -1,6 +1,6 @@
 stcalc - simple terminal calculator
 ===================================
-a simple command-line calculator written in C
+stcalc is a command-line calculator, all output is printed to either stdout or stderr.
 
 Installation
 ------------

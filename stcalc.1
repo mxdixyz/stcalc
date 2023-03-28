@@ -1,19 +1,31 @@
-.TH stcalc 1 2023-13-01
+.TH stcalc 1 2023-27-03
 .SH NAME
 stcalc \- Simple Terminal Calculator
 .SH SYNOPSIS
 .B stcalc
-.RB [ \-h ]
+.RB [ OPTION ]
+.RB [ EQUATION ]
 .SH DESCRIPTION
 .B stcalc
 a simple command-line calculator written in C
 .SH OPTIONS
 .TP
 .B \-h
-prints format information
+prints help menu
+.TP
+.B \-i
+interactive mode; prints to stdout
 .SH USAGE
-Improper Usage: 
+Improper Format: 
 .B 1+2
 
-Proper Usage: 
+Proper Format: 
 .B 1 + 2
+
+Use
+.B x
+instead of
+.B *
+for multiplication in non-interactive mode
+.SH Author
+Written by Madison Lynch <madi@mxdi.xyz>
